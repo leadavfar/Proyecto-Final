@@ -5,7 +5,7 @@ import { USER_SIGNIN_FAIL, USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS, GOOGLE_SIGN
 //Traemos al payload todos los autos
 export function getCars() {
     return async function (dispatch) {
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/products");
+        var json = await axios.get("https://car-shop-project.up.railway.app/products");
         return dispatch({
             type: 'GET_CARS',
             payload: json.data
@@ -15,7 +15,7 @@ export function getCars() {
 
 export function getAllUsers(payload){
     return async function (dispatch){
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/user")
+        var json = await axios.get("https://car-shop-project.up.railway.app/user")
         return dispatch({
             type:"GET_USERS",
             payload:json.data
@@ -26,7 +26,7 @@ export function getAllUsers(payload){
 export function putAdmin (payload){
     return async function (dispatch){
         try{
-            var json = await axios.put("https://pf-car-shop.herokuapp.com/promote/" +payload.id , payload)
+            var json = await axios.put("https://car-shop-project.up.railway.app/promote/" +payload.id , payload)
             return dispatch({
                 type:"PUT_ADMIN",
                 payload:json
@@ -39,7 +39,7 @@ export function putAdmin (payload){
 
 export function getOrder() {
     return async function (dispatch) {
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/orders");
+        var json = await axios.get("https://car-shop-project.up.railway.app/orders");
         return dispatch({
             type: 'GET_ORDERS',
             payload: json.data
@@ -50,7 +50,7 @@ export function getOrder() {
 
 export function putCart(payload) {
     return async function (dispatch) {
-        const json = await axios.put("https://pf-car-shop.herokuapp.com/orders/" + payload.idOrder, payload)
+        const json = await axios.put("https://car-shop-project.up.railway.app/orders/" + payload.idOrder, payload)
         return dispatch({
             type: 'PUT_CART',
             payload:json
@@ -62,7 +62,7 @@ export function putCart(payload) {
 
 export function getOrderByID(id) {
     return async function (dispatch) {
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/orders/" + id);
+        var json = await axios.get("https://car-shop-project.up.railway.app/orders/" + id);
         return dispatch({
             type: 'GET_ORDERS_BY_ID',
             payload: json.data
@@ -73,7 +73,7 @@ export function getOrderByID(id) {
 
 export function getEngine() {
     return async function (dispatch) {
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/products");
+        var json = await axios.get("https://car-shop-project.up.railway.app/products");
         return dispatch({
             type: 'GET_ENGINE',
             payload: json.data.map(el => el.features.engine)
@@ -83,7 +83,7 @@ export function getEngine() {
 
 export function getCarDetail(id) {
     return async function (dispatch) {
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/products/" + id);
+        var json = await axios.get("https://car-shop-project.up.railway.app/products/" + id);
         return dispatch({
             type: "GET_CAR_DETAIL",
             payload: json.data
@@ -93,7 +93,7 @@ export function getCarDetail(id) {
 
 export  function getReview(id) {
     return async function (dispatch) {
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/product/"+id+"/review");
+        var json = await axios.get("https://car-shop-project.up.railway.app/product/"+id+"/review");
         return dispatch({
             type: "GET_REVIEW",
             payload: json.data
@@ -102,7 +102,7 @@ export  function getReview(id) {
 }
 export function postProduct(payload) { 
     return async function (dispatch) {
-        const json = await axios.post("https://pf-car-shop.herokuapp.com/products", payload);
+        const json = await axios.post("https://car-shop-project.up.railway.app/products", payload);
         return dispatch({
             type: 'POST_PRODUCT',
             payload: json
@@ -113,7 +113,7 @@ export function postProduct(payload) {
 export function putProduct(id, payload) {
     
     return async function (dispatch) {
-        const json = await axios.put("https://pf-car-shop.herokuapp.com/productsPut/" + id, payload);
+        const json = await axios.put("https://car-shop-project.up.railway.app/productsPut/" + id, payload);
         return dispatch({
             type: 'PUT_PRODUCT',
             payload: json
@@ -124,7 +124,7 @@ export function putProduct(id, payload) {
 export function putProductStock(payload) {
     
     return async function (dispatch) {
-        const json = await axios.put("https://pf-car-shop.herokuapp.com/productsPut/" + payload.id, payload);
+        const json = await axios.put("https://car-shop-project.up.railway.app/productsPut/" + payload.id, payload);
         return dispatch({
             type: 'PUT_PRODUCT',
             payload: json
@@ -135,7 +135,7 @@ export function putProductStock(payload) {
 
 export function postMg (payload){
     return async function (dispatch){
-        const json = await axios.post("https://pf-car-shop.herokuapp.com/checkout", payload);
+        const json = await axios.post("https://car-shop-project.up.railway.app/checkout", payload);
         return dispatch({
             type: 'POST_MG',
             payload:json.data
@@ -145,7 +145,7 @@ export function postMg (payload){
 
 export function postCart(payload) {
     return async function (dispatch) {
-        const json = await axios.post("https://pf-car-shop.herokuapp.com/users/"+payload.user+"/cart", payload);
+        const json = await axios.post("https://car-shop-project.up.railway.app/users/"+payload.user+"/cart", payload);
         return dispatch({
             type: 'POST_CART',
             payload: json
@@ -157,7 +157,7 @@ export function postCart(payload) {
 
 export function postReview(payload ){
     return async function (dispatch){
-        const json = await axios.post("https://pf-car-shop.herokuapp.com/product/"+payload.id+"/review", payload)
+        const json = await axios.post("https://car-shop-project.up.railway.app/product/"+payload.id+"/review", payload)
         return dispatch({
             type: 'POST_REVIEW',
             payload:json
@@ -167,7 +167,7 @@ export function postReview(payload ){
 
 export function userRegister(payload) {
     return async function (dispatch) {
-        const json = await axios.post('https://pf-car-shop.herokuapp.com/register', payload);
+        const json = await axios.post('https://car-shop-project.up.railway.app/register', payload);
         return dispatch({
             type: 'USER_REGISTER',
             payload: json
@@ -177,7 +177,7 @@ export function userRegister(payload) {
 
 export function forgotPassword(mail) {
     return async function (dispatch) {
-        const json = await axios.put('https://pf-car-shop.herokuapp.com/forgotPassword', {mail});
+        const json = await axios.put('https://car-shop-project.up.railway.app/forgotPassword', {mail});
         return dispatch({
             type: 'FORGOT_PASSWORD',
             payload: json
@@ -187,7 +187,7 @@ export function forgotPassword(mail) {
 
 export function resetPassword(payload) {
     return async function (dispatch) {
-        const json = await axios.put('https://pf-car-shop.herokuapp.com/resetPassword', payload);
+        const json = await axios.put('https://car-shop-project.up.railway.app/resetPassword', payload);
         return dispatch({
             type: 'RESET_PASSWORD',
             payload: json
@@ -198,7 +198,7 @@ export function resetPassword(payload) {
 export const signin =(mail, password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST, payload: {mail, password}})
     try {
-        const { data } = await axios.post('https://pf-car-shop.herokuapp.com/login', {mail, password})
+        const { data } = await axios.post('https://car-shop-project.up.railway.app/login', {mail, password})
         if(data.error){
             dispatch({
             type: USER_SIGNIN_FAIL,
@@ -218,7 +218,7 @@ export const signin =(mail, password) => async (dispatch) => {
 export function googleSignin(tokenId){
     return async function(dispatch){
         try {
-            const {data} = await axios.post('https://pf-car-shop.herokuapp.com/googleLogin', {tokenId})
+            const {data} = await axios.post('https://car-shop-project.up.railway.app/googleLogin', {tokenId})
             if(data.error){
                 dispatch({
                     type: USER_SIGNIN_FAIL,
@@ -241,7 +241,7 @@ export function googleSignin(tokenId){
 export function deleteUser(id) {
     return async function (dispatch) {
         try {
-            let json = await axios.put("https://pf-car-shop.herokuapp.com/delete_user/" + id)
+            let json = await axios.put("https://car-shop-project.up.railway.app/delete_user/" + id)
 
             return dispatch({
                 type: "DELETE_USER",
@@ -258,7 +258,7 @@ export function deleteUser(id) {
 export const userAdmin =(mail, password) => async (dispatch) => {
     dispatch({ type: 'USER_ADMIN_REQUEST', payload: {mail, password}})
     try {
-        const { data } = await axios.post('https://pf-car-shop.herokuapp.com/login', {mail, password})
+        const { data } = await axios.post('https://car-shop-project.up.railway.app/login', {mail, password})
         dispatch({ type: 'USER_ISADMIN', payload: data})
         localStorage.setItem('userAdmin', JSON.stringify(data.state))
         
@@ -279,7 +279,7 @@ export const getUserData = (userId) => async (dispatch, getState) => {
         userInfo 
     } = getState();
     try {
-        const { data } = await axios.get(`https://pf-car-shop.herokuapp.com/user/${userId}`, {
+        const { data } = await axios.get(`https://car-shop-project.up.railway.app/user/${userId}`, {
             headers: { Authorization: `Bearer ${userInfo.token}`}
         });
         dispatch({ type: 'USER_DETAILS_SUCCESS', payload: data })
@@ -296,7 +296,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
         userInfo  ,
     } = getState();
     try {
-        const { data } = await axios.put(`https://pf-car-shop.herokuapp.com/user/profile`, user, {
+        const { data } = await axios.put(`https://car-shop-project.up.railway.app/user/profile`, user, {
             headers: { Authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'USER_UPDATE_PROFILE_SUCCESS', payload: data });
@@ -315,7 +315,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
 export function DeleteCar(id) {
     return async function (dispatch) {
         try {
-            var json = await axios.delete("https://pf-car-shop.herokuapp.com/productsDelete/" + id);
+            var json = await axios.delete("https://car-shop-project.up.railway.app/productsDelete/" + id);
             return dispatch({
                 type: "DELETE_CAR",
                 payload: json
@@ -329,7 +329,7 @@ export function DeleteCar(id) {
 
 export function DeleteCartId(id) {
     return async function (dispatch) {
-        var json = await axios.delete("https://pf-car-shop.herokuapp.com/cart/delete/" + id);
+        var json = await axios.delete("https://car-shop-project.up.railway.app/cart/delete/" + id);
         return dispatch({
             type: "DELETE_CART_BY_ID",
             payload: json
@@ -385,7 +385,7 @@ export function filterAge(payload) {
 }
 export function searchId(payload) {
     return async function (dispatch) {
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/home/edit/" +payload.input)
+        var json = await axios.get("https://car-shop-project.up.railway.app/home/edit/" +payload.input)
         return dispatch({
             type: 'SEARCH_ID_ORDER',
             payload :json
@@ -404,7 +404,7 @@ export function filterStatus(payload) {
 export function getNameCars(name) {
     return async function (dispatch) {
         try {
-            var json = await axios.get("https://pf-car-shop.herokuapp.com/searchCars?name=" + name);
+            var json = await axios.get("https://car-shop-project.up.railway.app/searchCars?name=" + name);
             return dispatch({
                 type: "GET_NAME_CARS",
                 payload: json.data
@@ -420,7 +420,7 @@ export function getNameCars(name) {
 
 export function getAllOrderStatus(payload) {
     return async function (dispatch) {
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/orders/?status="+ payload.status);
+        var json = await axios.get("https://car-shop-project.up.railway.app/orders/?status="+ payload.status);
         return dispatch({
             type: 'GET_ALL_ORDERS_STATUS',
             payload: json.data
@@ -429,7 +429,7 @@ export function getAllOrderStatus(payload) {
 }
 export function getUserOrderStatus(payload) {
     return async function (dispatch) {
-        var json = await axios.get("https://pf-car-shop.herokuapp.com/users/"+payload.id+"/orders/?status="+ payload.status);
+        var json = await axios.get("https://car-shop-project.up.railway.app/users/"+payload.id+"/orders/?status="+ payload.status);
         return dispatch({
             type: 'GET_ORDERS_USER_STATUS',
             payload: json.data
@@ -438,7 +438,7 @@ export function getUserOrderStatus(payload) {
 }
     export function getOrderByUsuario(payload) {
         return async function (dispatch) {
-            var json = await axios.get("https://pf-car-shop.herokuapp.com/users/"+payload+"/orders");
+            var json = await axios.get("https://car-shop-project.up.railway.app/users/"+payload+"/orders");
             return dispatch({
                 type: 'GET_ORDERS_BY_USUARIO',
                 payload: json.data
@@ -448,7 +448,7 @@ export function getUserOrderStatus(payload) {
 export function getBrandCars(name) {
     return async function (dispatch) {
         try {
-            var json = await axios.get("https://pf-car-shop.herokuapp.com/searchbrand?brand=" + name, {
+            var json = await axios.get("https://car-shop-project.up.railway.app/searchbrand?brand=" + name, {
 
             });
             return dispatch({
@@ -465,7 +465,7 @@ export function getBrandCars(name) {
 export function getCategories() {
     return async function (dispatch) {
         try {
-            var json = await axios.get("https://pf-car-shop.herokuapp.com/categories");
+            var json = await axios.get("https://car-shop-project.up.railway.app/categories");
             return dispatch({
                 type: "GET_CATEGORIES",
                 payload: json.data
@@ -479,7 +479,7 @@ export function getCategories() {
 
 export function postCategory(payload) {
     return async function (dispatch) {
-        const json = await axios.post("https://pf-car-shop.herokuapp.com/categories", payload);
+        const json = await axios.post("https://car-shop-project.up.railway.app/categories", payload);
         return dispatch({
             type: 'POST_CATEGORY',
             payload: json
@@ -490,7 +490,7 @@ export function postCategory(payload) {
 export function deleteCategory(id) {
     return async function (dispatch) {
         try {
-            var json = await axios.delete("https://pf-car-shop.herokuapp.com/categories/" + id);
+            var json = await axios.delete("https://car-shop-project.up.railway.app/categories/" + id);
             return dispatch({
                 type: "DELETE_CATEGORY",
                 payload: json
@@ -505,7 +505,7 @@ export function deleteCategory(id) {
 export function updateCategory(id, payload) {
 
     return async function (dispatch) {
-        const json = await axios.put("https://pf-car-shop.herokuapp.com/categories/" + id, payload);
+        const json = await axios.put("https://car-shop-project.up.railway.app/categories/" + id, payload);
         return dispatch({
             type: 'UPDATE_CATEGORY',
             payload: json
